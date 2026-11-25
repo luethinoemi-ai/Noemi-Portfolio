@@ -1,5 +1,6 @@
 import TechText from "../../effects/TechText";
 import "./Hero.css";
+import { Link } from "react-router-dom";
 
 const accent = getComputedStyle(document.documentElement)
   .getPropertyValue("--accent-light")
@@ -10,6 +11,9 @@ export default function Hero() {
     <section id="top" className="hero">
       <p className="hero-kicker">Hallo, ich bin</p>
       <h1 className="sr-only">Noemi Lüthi</h1>
+      <Link to="/projects" className="btn">
+        Meine Projekte
+      </Link>
       <div className="hero-name">
         <TechText
           text="Noemi Lüthi"

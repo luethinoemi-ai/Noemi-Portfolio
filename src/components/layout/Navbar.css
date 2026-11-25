@@ -3,37 +3,114 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 10;
+  z-index: 100;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  background: color-mix(in srgb, var(--bg) 85%, transparent);
-  backdrop-filter: blur(8px);
+  padding: 0.9rem 1.5rem;
   border-bottom: 1px solid var(--border);
 }
+.navbar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
+  backdrop-filter: blur(8px);
+}
 .navbar-logo {
+  position: relative;
+  z-index: 102;
   font-weight: 700;
   font-size: 1.2rem;
-}
-.navbar ul {
-  display: flex;
-  gap: 1.5rem;
-  list-style: none;
-}
-.navbar ul a {
   color: var(--text);
 }
-.navbar ul a:hover {
-  color: var(--accent-light);
+
+.burger {
+  position: relative;
+  z-index: 102;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  width: 44px;
+  height: 44px;
+  padding: 11px;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+.burger:hover {
+  border-color: var(--accent);
+}
+.burger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--text);
+  border-radius: 2px;
+  transition:
+    transform 0.3s,
+    opacity 0.3s;
+}
+.burger.is-open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.burger.is-open span:nth-child(2) {
+  opacity: 0;
+}
+.burger.is-open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
 }
 
-@media (max-width: 600px) {
-  .navbar {
-    padding: 1rem;
-  }
-  .navbar ul {
-    gap: 1rem;
-    font-size: 0.9rem;
-  }
+.menu-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+}
+
+.menu {
+  position: fixed;
+  top: 78px;
+  right: 1rem;
+  z-index: 101;
+  width: min(300px, calc(100vw - 2rem));
+  padding: 0.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition:
+    opacity 0.2s,
+    transform 0.2s,
+    visibility 0.2s;
+}
+.menu.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: none;
+}
+.menu ul {
+  list-style: none;
+}
+.menu a {
+  display: block;
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  color: var(--text);
+  font-size: 1.05rem;
+}
+.menu a:hover {
+  background: var(--border);
+}
+.menu a.active {
+  color: var(--accent-light);
+  background: color-mix(in srgb, var(--accent) 15%, transparent);
 }
