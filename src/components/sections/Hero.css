@@ -1,0 +1,24 @@
+.hero {
+  min-height: 100vh;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 6rem 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.hero-kicker {
+  color: var(--accent-light);
+}
+.hero-name {
+  width: 100%;
+  height: clamp(160px, 28vw, 300px);
+  color: var(--text);
+}
+.hero-role {
+  font-size: 1.25rem;
+  opacity: 0.85;
+  margin-bottom: 1rem;
+}
