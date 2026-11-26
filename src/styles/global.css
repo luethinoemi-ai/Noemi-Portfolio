@@ -137,3 +137,66 @@ main {
 .gallery-title {
   margin: 3rem 0 1rem;
 }
+
+.tagline {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.7rem, 4.5vw, 2.6rem);
+  color: var(--accent-light);
+  min-height: 1.3em;
+  line-height: 1.2;
+}
+.caret {
+  display: inline-block;
+  width: 2px;
+  height: 0.9em;
+  margin-left: 4px;
+  background: var(--accent-light);
+  vertical-align: -0.1em;
+  animation: blink 1s steps(2) infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  list-style: none;
+}
+.socials a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem;
+  font-size: 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--text);
+  transition:
+    color 0.2s,
+    border-color 0.2s,
+    transform 0.2s;
+}
+.socials a:hover {
+  color: var(--accent-light);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+.socials-labeled a {
+  padding: 0.7rem 1.1rem;
+}
+.socials-labeled a span {
+  font-size: 1rem;
+}
+
+.legal h3 {
+  margin: 1.75rem 0 0.5rem;
+  color: var(--accent-light);
+}
+.legal p {
+  max-width: 650px;
+}

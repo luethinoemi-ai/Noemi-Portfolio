@@ -1,0 +1,80 @@
+.reveal {
+  position: relative;
+  display: inline-block;
+}
+
+.reveal-word {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: var(--accent-light);
+  border-bottom: 1px dashed var(--accent);
+  cursor: help;
+}
+.reveal-word:hover {
+  color: var(--text);
+}
+.reveal-word:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.reveal-pop {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 12px);
+  z-index: 20;
+  width: min(260px, 70vw);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 0.6rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.4;
+  text-align: left;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate(-50%, 6px);
+  transition:
+    opacity 0.2s,
+    transform 0.2s,
+    visibility 0.2s;
+}
+.reveal-pop.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+}
+.reveal-pop img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.reveal-text {
+  padding: 0 0.3rem 0.2rem;
+}
+
+/* Auf Handys: Karte unten am Bildschirmrand */
+@media (hover: none) {
+  .reveal-pop {
+    position: fixed;
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    width: auto;
+    transform: translateY(12px);
+  }
+  .reveal-pop.is-open {
+    transform: none;
+  }
+}

@@ -2,6 +2,13 @@ import { Link } from "react-router-dom";
 import TechText from "../../effects/TechText";
 import Aurora from "../../effects/Aurora";
 import "./Hero.css";
+import Typewriter from "../ui/Typewriter";
+
+const phrases = [
+  "Ich baue Apps und Webseiten.",
+  "Ich zeichne und fahre Motorrad.",
+  "Ich lerne jeden Tag etwas Neues.",
+];
 
 const css = (name) =>
   getComputedStyle(document.documentElement).getPropertyValue(name).trim();
@@ -43,6 +50,7 @@ export default function Hero() {
             guides={false}
           />
         </div>
+        <Typewriter phrases={phrases} />
         <p className="hero-role">Lernende Applikationsentwicklerin</p>
         <Link to="/projects" className="btn">
           Meine Projekte
