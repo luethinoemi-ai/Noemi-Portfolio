@@ -1,19 +1,17 @@
 import { Link } from "react-router-dom";
 import TechText from "../../effects/TechText";
 import Aurora from "../../effects/Aurora";
-import "./Hero.css";
 import Typewriter from "../ui/Typewriter";
-
-const phrases = [
-  "Ich baue Apps und Webseiten.",
-  "Ich zeichne und fahre Motorrad.",
-  "Ich lerne jeden Tag etwas Neues.",
-];
+import { useLang } from "../../i18n/context";
+import { useTheme } from "../../theme/context";
+import "./Hero.css";
 
 const css = (name) =>
   getComputedStyle(document.documentElement).getPropertyValue(name).trim();
 
 export default function Hero() {
+  const { lang, t } = useLang();
+  const { theme } = useTheme();
   const accent = css("--accent");
   const accentLight = css("--accent-light");
 
@@ -22,12 +20,14 @@ export default function Hero() {
       <div className="hero-bg" aria-hidden="true">
         <Aurora
           colorStops={[accent, accentLight, accent]}
+          lightMode={theme === "light"}
           amplitude={1}
           blend={0.6}
           speed={0.6}
-          height={0.5}
-          glow={0.6}
-          brightness={0.7}
+          height={0.4}
+          glow={0.4}
+          brightness={0.45}
+          opacity={0.7}
         />
       </div>
 
@@ -50,10 +50,10 @@ export default function Hero() {
             guides={false}
           />
         </div>
-        <Typewriter phrases={phrases} />
-        <p className="hero-role">Lernende Applikationsentwicklerin</p>
+        <Typewriter key={lang} phrases={t.hero.phrases} />
+        <p className="hero-role">{t.hero.role}</p>
         <Link to="/projects" className="btn">
-          Meine Projekte
+          {t.hero.cta}
         </Link>
       </div>
     </section>
