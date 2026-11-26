@@ -114,3 +114,67 @@
   color: var(--accent-light);
   background: color-mix(in srgb, var(--accent) 15%, transparent);
 }
+
+.navbar-tools {
+  position: relative;
+  z-index: 102;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.lang {
+  display: flex;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.lang-btn {
+  height: 42px;
+  padding: 0 0.65rem;
+  background: none;
+  border: 0;
+  color: var(--text);
+  font: inherit;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  opacity: 0.7;
+  cursor: pointer;
+}
+.lang-btn:hover {
+  opacity: 1;
+}
+.lang-btn.is-active {
+  background: var(--accent-light);
+  color: var(--on-accent);
+  opacity: 1;
+}
+
+.icon-btn {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  font-size: 1rem;
+  cursor: pointer;
+  transition:
+    border-color 0.2s,
+    color 0.2s;
+}
+.icon-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent-light);
+}
+
+@media (max-width: 420px) {
+  .navbar-tools {
+    gap: 0.35rem;
+  }
+  .lang-btn {
+    padding: 0 0.5rem;
+  }
+}
