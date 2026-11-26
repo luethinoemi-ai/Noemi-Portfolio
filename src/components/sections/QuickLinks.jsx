@@ -1,33 +1,23 @@
 import { Link } from "react-router-dom";
+import { useLang } from "../../i18n/context";
 
 const items = [
-  {
-    to: "/about",
-    title: "Über mich",
-    text: "Wer ich bin und was mich antreibt.",
-  },
-  {
-    to: "/motorcycle",
-    title: "Motorrad",
-    text: "Meine Maschine und was ich daran mache.",
-  },
-  {
-    to: "/drawings",
-    title: "Zeichnungen",
-    text: "Eine Auswahl meiner Arbeiten.",
-  },
-  { to: "/projects", title: "Projekte", text: "Code, Apps und Schulprojekte." },
+  { to: "/about", key: "about" },
+  { to: "/motorcycle", key: "motorcycle" },
+  { to: "/drawings", key: "drawings" },
+  { to: "/projects", key: "projects" },
 ];
 
 export default function QuickLinks() {
+  const { t } = useLang();
   return (
     <section className="section quick">
       <div className="project-grid">
-        {items.map((i) => (
-          <Link key={i.to} to={i.to} className="card quick-card">
-            <h3>{i.title}</h3>
-            <p>{i.text}</p>
-            <span>Ansehen →</span>
+        {items.map(({ to, key }) => (
+          <Link key={to} to={to} className="card quick-card">
+            <h3>{t.quick[key].title}</h3>
+            <p>{t.quick[key].text}</p>
+            <span>{t.quick.more}</span>
           </Link>
         ))}
       </div>
