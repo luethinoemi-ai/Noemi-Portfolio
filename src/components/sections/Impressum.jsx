@@ -1,32 +1,31 @@
+import { socials } from "../../data/links";
+import { useLang } from "../../i18n/context";
+
+const email = socials
+  .find((s) => s.icon === "mail")
+  ?.href.replace("mailto:", "");
+
 export default function Impressum() {
+  const { t } = useLang();
+  const i = t.impressum;
   return (
     <section className="section legal">
-      <h2>Impressum</h2>
+      <h2>{i.title}</h2>
 
-      <h3>Verantwortlich für den Inhalt</h3>
+      <h3>{i.responsibleTitle}</h3>
       <p>
         Noemi Jael Lüthi
         <br />
-        Ort, Schweiz
+        {i.place}
         <br />
-        E-Mail: <a href="mailto:deine@mail.ch">deine@mail.ch</a>
+        {i.emailLabel}: <a href={`mailto:${email}`}>{email}</a>
       </p>
 
-      <h3>Haftungsausschluss</h3>
-      <p>
-        Die Inhalte dieser Seite wurden sorgfältig erstellt. Für Richtigkeit,
-        Vollständigkeit und Aktualität kann jedoch keine Gewähr übernommen
-        werden. Für Inhalte verlinkter externer Seiten sind ausschliesslich
-        deren Betreiber verantwortlich.
-      </p>
+      <h3>{i.disclaimerTitle}</h3>
+      <p>{i.disclaimer}</p>
 
-      <h3>Datenschutz</h3>
-      <p>
-        Diese Seite verwendet keine Cookies, kein Tracking und keine
-        Kontaktformulare. Sie wird über GitHub Pages bereitgestellt, dabei kann
-        der Hosting-Anbieter technisch bedingt Zugriffsdaten (zum Beispiel die
-        IP-Adresse) verarbeiten. Schriftarten werden lokal ausgeliefert.
-      </p>
+      <h3>{i.privacyTitle}</h3>
+      <p>{i.privacy}</p>
     </section>
   );
 }
