@@ -200,3 +200,88 @@ main {
 .legal p {
   max-width: 650px;
 }
+
+.about-top.has-photo {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.about-top.has-photo .about-intro {
+  margin-bottom: 0;
+}
+.about-photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+}
+@media (max-width: 700px) {
+  .about-top.has-photo {
+    grid-template-columns: 1fr;
+  }
+  .about-photo {
+    max-width: 240px;
+  }
+}
+
+.progress {
+  height: 10px;
+  margin-bottom: 2rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.progress-bar {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+}
+.semester-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+.modules {
+  list-style: none;
+  display: grid;
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+.modules li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.2rem 0.75rem;
+  align-items: baseline;
+}
+.module-code {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.85rem;
+  color: var(--accent-light);
+}
+.status {
+  grid-column: 2;
+  justify-self: start;
+  font-size: 0.75rem;
+  padding: 0.1rem 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+.status-done {
+  color: var(--accent-light);
+  border-color: var(--accent);
+}
+.status-active {
+  background: color-mix(in srgb, var(--accent) 20%, transparent);
+  border-color: var(--accent);
+}
+.status-planned {
+  opacity: 0.6;
+}
+
+.quick .project-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
