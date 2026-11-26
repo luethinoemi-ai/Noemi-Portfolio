@@ -1,6 +1,11 @@
+import { L } from "../i18n/context";
 export const socials = [
   { name: "GitHub", href: "https://github.com/luethinoemi-ai", icon: "github" },
-  { name: "E-Mail", href: "mailto:luethinoemi@gmail.com", icon: "mail" },
+  {
+    name: L("E-Mail", "Email", "E-mail"),
+    href: "mailto:luethinoemi@gmail.com",
+    icon: "mail",
+  },
   {
     name: "Instagram",
     href: "https://instagram.com/the.noemi.xo",
