@@ -11,6 +11,9 @@ body {
   color: var(--text);
   font-family: system-ui, sans-serif;
   line-height: 1.6;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 }
 a {
   color: var(--accent-light);
@@ -44,13 +47,13 @@ a {
   padding: 0.7rem 1.4rem;
   border-radius: 8px;
   background: var(--accent-light);
-  color: var(--bg);
+  color: var(--on-accent);
   font-weight: 600;
   transition: background 0.2s;
 }
 .btn:hover {
   background: var(--accent);
-  color: var(--text);
+  color: var(--on-accent);
 }
 
 .skill-list {
